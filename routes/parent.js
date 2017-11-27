@@ -1,5 +1,5 @@
 var express = require('express')
-const router = require('Express').Router()
+var router = express.Router()
 const queries = require('../db/queries')
 
 const table = 'parent'

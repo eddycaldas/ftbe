@@ -1,4 +1,3 @@
-
 var express = require('express')
 var router = express.Router()
 const queries = require('../db/queries')
@@ -14,10 +13,6 @@ router.delete('/:id', (req, res) => {
   queries[table].delete(req.params.id)
   .then(() => res.send(202))
 });
-
-
-
-
 
 router.get('/:id', (req, res) => {
   var withParents = req.query.withParents
@@ -35,13 +30,6 @@ router.get('/:id', (req, res) => {
   .then((kid) => res.json(kid))
 }
 });
-
-
-
-
-
-
-
 
 router.post('/', (req, res) => {
   queries[table].create(req.body)

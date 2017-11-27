@@ -14,10 +14,6 @@ router.delete('/:id', (req, res) => {
   .then(() => res.send(202))
 });
 
-
-
-
-
 router.get('/:id', (req, res) => {
   var withKids = req.query.withKids
   var query = queries[table].read(req.params.id)
@@ -35,12 +31,6 @@ router.get('/:id', (req, res) => {
 }
 });
 
-
-
-
-
-
-
 router.post('/', (req, res) => {
   queries[table].create(req.body)
   .then((parent) => res.json(parent))
@@ -50,6 +40,5 @@ router.put('/:id', (req, res) => {
   queries[table].update(req.params.id, req.body)
   .then((parent) => res.send(200))
 })
-
 
 module.exports = router

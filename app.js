@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const PORT = process.env.PORT || 3000
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const routes = {
   kid: require('./routes/kid'),

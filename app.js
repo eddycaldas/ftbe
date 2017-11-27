@@ -7,9 +7,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 
 const routes = {
-  kid: require('./routes/kid')
+  kid: require('./routes/kid'),
+  parent: require('./routes/parent')
 }
 
 app.use('/kid', routes.kid)
+app.use('/parent', routes.parent)
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))

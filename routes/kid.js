@@ -13,10 +13,33 @@ router.delete('/:id', (req, res) => {
   .then(() => res.send(202))
 });
 
+
+
+
+
 router.get('/:id', (req, res) => {
-  queries[table].read(req.params.id)
+  var withParents = req.query.withParents
+  var query = queries[table].read(req.params.id)
+  if(withParents){
+    queries.parent_kid.getParentsForKid(req.params.id)
+    .then((parents) => {
+      return query.then((kid) => {
+        kid.parents = parents
+        res.json(kid)
+      })
+    })
+  } else {
+  query
   .then((kid) => res.json(kid))
+}
 });
+
+
+
+
+
+
+
 
 router.post('/', (req, res) => {
   queries[table].create(req.body)

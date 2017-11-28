@@ -1,4 +1,4 @@
-// Update with your config settings.
+require('dotenv').config()
 
 module.exports = {
 
@@ -12,3 +12,6 @@ module.exports = {
   },
 
 };
+
+// https://ftbe.herokuapp.com/parent
+// https://ftbe.herokuapp.com/kid
